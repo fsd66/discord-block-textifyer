@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Discord Block Textifyer</title>
+
+        <style>
+            body {
+                background-color: #444;
+                color: #ddd;
+            }
+
+            .block-textifyer-body {
+                width: 50%;
+                margin: auto;
+                text-align: center;
+            }
+
+            .block-textifyer-body textarea {
+                width: 700px;
+                height: 300px;
+                resize: none;
+                border: 2px solid #000;
+                background-color: #555;
+                color: #ddd;
+                padding: 5px;
+                font-size: 1.5em;
+            }
+
+            .block-textifyer-section {
+                margin: 20px;
+            }
+
+            .block-textifyer-button {
+                width: 100px;
+                height: 50px;
+                border: 2px solid #000;
+                background-color: #555;
+                color: #ddd;
+            }
+        </style>
+
+        <script src="block-textifyer.js"></script>
+        <script>
+            const defaultString = "The quick brown fox jumped over the lazy dogs";
+
+            const blockTextifyInput = () => {
+                const input = document.getElementById("block-textifyer-input").value;
+                console.log("BlockTextifying:", input);
+                document.getElementById("block-textifyer-output").value = `${blockTextify(input)}`;
+            };
+
+            window.onload = () => {
+                document.getElementById("block-textifyer-input").value = defaultString;
+                document.getElementById("block-textifyer-output").value = "";
+                blockTextifyInput();
+            };
+        </script>
+    </head>
+
+    <body>
+        <div class="block-textifyer-body">
+            <div class="block-textifyer-section">
+                Input:
+                <div>
+                    <textarea id="block-textifyer-input"></textarea>
+                </div>
+            </div>
+
+            <div class="block-textifyer-section">
+                <input type="button" class="block-textifyer-button" value="Transform" onclick="blockTextifyInput();" />
+            </div>
+
+            <div class="block-textifyer-section">
+                Output:
+                <div>
+                    <textarea id="block-textifyer-output" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
